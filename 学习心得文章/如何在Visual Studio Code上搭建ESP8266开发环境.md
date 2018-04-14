@@ -9,7 +9,7 @@
 
 - **[3]** 安信可推出的eclipse+cygwin+安信可的配置工具在windows上开发
 
-现在大家用搜索引擎搜索到的开发环境搭建的教程或者论坛贴均是基于上面的**[1]**&**[2]**&**[3]**来展开的,但是上面的这几种开发环境在我看来均是不完美的,原因如下:
+现在大家用搜索引擎搜索到的开发环境搭建的教程或者论坛贴均是基于上面的 **[1]**&**[2]**&**[3]** 来展开的,但是上面的这几种开发环境在我看来均是不完美的,原因如下:
 - **[A]** 一般的嵌入式开发者,大多开发软件均是基于Windows的,如果直接在Linux下开发,要么就安装Linux虚拟机,要么双系统,要么两台电脑,要么......等等,这些在我看来是让人很蛋疼的,起码我个人是绝不会这样做的,因为我们仅仅是需要一个linux环境而已,你却要我安装这么多还这么大的东西,所以我对这种方式直接"Say No!"**(如果是一直都是基于linux环境开发的大佬可以忽悠,直接右上角)**
 
 - **[B]** 官方推出的第二种方式在我看来,会比官方推荐的第一种方式稍微好一点,但是还是太麻烦了,因为编译和编写代码要在**windows**和**linux**环境下不断切换,仍然**PASS**掉:grin:
@@ -25,16 +25,16 @@
 ![](https://raw.githubusercontent.com/xiaolongba/picture/master/ESP8266%20%E5%BC%80%E5%8F%91%E6%89%80%E9%9C%80%E8%A6%81%E7%9A%84%E5%B7%A5%E5%85%B7.png)
 
 ### 支持Make命令的Linux环境
-**Cygwin**、**MinGw**以及乐鑫官方提供的**msys2**等等均可以,选一个你最喜欢的.这里我选用安信可提供的Cygwin**(里面已经包含了ESP8266&ESP32的编译工具链)**[下载地址](https://pan.baidu.com/s/1skRvR1j#list/path=%2F)
+**Cygwin**、**MinGw**以及乐鑫官方提供的**msys2**等等均可以,选一个你最喜欢的.这里我选用安信可提供的Cygwin **(里面已经包含了ESP8266&ESP32的编译工具链)** [下载地址](https://pan.baidu.com/s/1skRvR1j#list/path=%2F)
 
 ### ESP的toolchain
-因为乐鑫芯片的内核不是我们大家所比较熟悉的**Cortex-M**内核,所以需要用乐鑫提供的工具链,ESP8266用的是**xtensa-lx106-elf**,ESP32用的是**xtensa-esp32-elf**,已经包含在上面的**[下载地址]**
+因为乐鑫芯片的内核不是我们大家所比较熟悉的**Cortex-M**内核,所以需要用乐鑫提供的工具链,ESP8266用的是**xtensa-lx106-elf**,ESP32用的是**xtensa-esp32-elf**,已经包含在上面的 **[下载地址]**
 
 ### 代码编辑器
 **Visual Studio Code**、**clion**、**sublime**、**source insight**等等均可以,但是我个人还是推荐用神器**Visual Studio Code**,理由你懂得:smile:
 
 
-其实,**ESP8266开发环境现状**中所说的**[1]**&**[2]**&**[3]**就是基于上面所说的方法展开的,以下是我摸索出来的方法
+其实,**ESP8266开发环境现状**中所说的 **[1]**&**[2]**&**[3]** 就是基于上面所说的方法展开的,以下是我摸索出来的方法
 ![](https://raw.githubusercontent.com/xiaolongba/picture/master/ESP8266%20%E5%BC%80%E5%8F%91%E6%89%80%E9%9C%80%E8%A6%81%E7%9A%84%E5%B7%A5%E5%85%B7%2B%E8%AF%A6%E7%BB%86%E5%86%85%E5%AE%B9.png)
 
 之所以是这样的组合,理由如下:
@@ -46,8 +46,8 @@
 ## 配置
 要实现这样以上所说的功能,只需进行以下几个简单的配置即可.
 - 安装**Visual Studio Code**,这个自行解决**(如果不知道的小伙伴,没错!赶紧回家养猪吧,不要问为什么:joy:)**
-- 解压**Cygwin**至任意盘符**(!路径最好不要有中文)**
-- 将**Cygwin**和**编译工具链**添加至环境变量**(右击我的电脑->高级系统设置->环境变量)**中即可**(用户及系统变量任意一个均可)**,笔者添加至环境变量的内容如下,<font color=#ff0000 size=3>一定要添加至环境变量否则无法调用bash和使用乐鑫的编译工具链:</font>
+- 解压**Cygwin**至任意盘符 **(!路径最好不要有中文)**
+- 将**Cygwin**和**编译工具链**添加至环境变量 **(右击我的电脑->高级系统设置->环境变量)**中即可**(用户及系统变量任意一个均可)**,笔者添加至环境变量的内容如下,<font color=#ff0000 size=3>一定要添加至环境变量否则无法调用bash和使用乐鑫的编译工具链:</font>
 ```
 E:\Software Application\Cygwin\cygwin\bin;
 E:\Software Application\Cygwin\cygwin\opt\xtensa-lx106-elf\bin;
@@ -66,7 +66,7 @@ E:\Software Application\Cygwin\cygwin\opt\xtensa-lx106-elf\bin;
 - 在终端中从powershell切换至bash,如下图所示:
 ![](https://raw.githubusercontent.com/xiaolongba/picture/master/bash.png)
 
-- 开始编译**(在编译前需要修改gen_misc.sh中的SDK以及BIN路径,具体的修改方法参考[ESP8266 SDK⼊门指南](https://www.espressif.com/zh-hans/support/explore/get-started/esp8266/getting-started-guide))**,如下图所示
+- 开始编译 **(在编译前需要修改gen_misc.sh中的SDK以及BIN路径,具体的修改方法参考[ESP8266 SDK⼊门指南](https://www.espressif.com/zh-hans/support/explore/get-started/esp8266/getting-started-guide))**,如下图所示
 ![](https://raw.githubusercontent.com/xiaolongba/picture/master/complier.png)
 
 
