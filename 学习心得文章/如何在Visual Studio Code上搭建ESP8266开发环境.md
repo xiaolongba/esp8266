@@ -45,7 +45,7 @@
 
 ## 配置
 要实现这样以上所说的功能,只需进行以下几个简单的配置即可.
-- 安装**Visual Studio Code**,这个自行解决**(如果不知道的小伙伴,没错!赶紧回家养猪吧,不要问为什么:joy:)**
+- 安装**Visual Studio Code**,这个自行解决 **(如果不知道的小伙伴,没错!赶紧回家养猪吧,不要问为什么:joy:)**
 - 解压**Cygwin**至任意盘符 **(!路径最好不要有中文)**
 - 将**Cygwin**和**编译工具链**添加至环境变量 **(右击我的电脑->高级系统设置->环境变量)**中即可**(用户及系统变量任意一个均可)**,笔者添加至环境变量的内容如下,<font color=#ff0000 size=3>一定要添加至环境变量否则无法调用bash和使用乐鑫的编译工具链:</font>
 ```
@@ -66,7 +66,7 @@ E:\Software Application\Cygwin\cygwin\opt\xtensa-lx106-elf\bin;
 - 在终端中从powershell切换至bash,如下图所示:
 ![](https://raw.githubusercontent.com/xiaolongba/picture/master/bash.png)
 
-- 开始编译 **(在编译前需要修改gen_misc.sh中的SDK以及BIN路径,具体的修改方法参考[ESP8266 SDK⼊门指南](https://www.espressif.com/zh-hans/support/explore/get-started/esp8266/getting-started-guide))**,如下图所示
+- 开始编译 **(在编译前需要修改gen_misc.sh中的SDK以及BIN路径,具体的修改方法参考[ESP8266 SDK入门指南](https://www.espressif.com/zh-hans/support/explore/get-started/esp8266/getting-started-guide))**,如下图所示
 ![](https://raw.githubusercontent.com/xiaolongba/picture/master/complier.png)
 
 
