@@ -8,4 +8,5 @@ ESP8266序列学习心得是我在使用这颗芯片时的学习总结,大体来
 
 # 个人公众号
 如果不喜欢整天上github,可以关注我的个人微信公众号,我也会将文章同步更新至公众号.
+
 ![](https://raw.githubusercontent.com/xiaolongba/picture/master/QR-small.jpg)
