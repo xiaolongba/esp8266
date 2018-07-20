@@ -17,6 +17,7 @@ example:
     export ESP_INIT_DATA_DEFAULT_BIN_PATH=D:/Project/Smart_Plug/bin/esp_init_data_default.bin
 !
 export ESPTOOL_PATH=D:/Project/Smart_Plug/tools/esptool-2.3.1/esptool.py
+export COM=COM10
 export BOOT_PATH=D:/Project/Smart_Plug/bin/boot_v1.7.bin
 export USER_BIN_PATH=D:/Project/Smart_Plug/bin/upgrade/user1.2048.new.3.bin
 export BLANK_BIN_PATH=D:/Project/Smart_Plug/bin/blank.bin
@@ -24,9 +25,6 @@ export ESP_INIT_DATA_DEFAULT_BIN_PATH=D:/Project/Smart_Plug/bin/esp_init_data_de
 
 echo "Download shell by Helon Chan 2018/04/01"
 echo ""
-
-# get the serial port variable from "gen_misc.sh"
-COM = $1
 
 if [ $ESPTOOL_PATH ]; then    
     echo "$ESPTOOL_PATH"
@@ -36,23 +34,17 @@ else
     exit
 fi
 
-# if [ $COM ]; then    
-#     echo "$COM"
-#     echo ""
-# else
-#     echo "ERROR: Please export COM in download.sh firstly, exit!!!"
-#     exit
-# fi
+if [ $COM ]; then    
+    echo "$COM"
+    echo ""
+else
+    echo "ERROR: Please export COM in download.sh firstly, exit!!!"
+    exit
+fi
 
+echo "Do u wanna check the flash size?enter (Y/y or N/n) to continue(default is N/n):"
 echo ""
-echo "Do u wanna check the flash size?\\n enter (Y/y or N/n) to continue(default is N/n):"
-echo ""
-input=n
-echo "enter $input"
-:<<!
-if u wanna check the flash size,dont note this comments as below
 read input
-!
 
 if [[ $input == Y ]] || [[ $input == y ]]; then
     echo "pls coming into download model firstly!!"
@@ -60,19 +52,13 @@ if [[ $input == Y ]] || [[ $input == y ]]; then
     $ESPTOOL_PATH --port $COM flash_id    
 fi
 
-
 echo ""
 :<<!
 if yes,erase all flash otherwise dont erase anything
 !
 echo "Do u want to erase all flash? enter (Y/y or N/n) to continue(default is N/n):"
 echo ""
-input=n
-echo "enter $input"
-:<<!
-if u wanna erase all flash,dont note this comments as below
 read input
-!
 
 if [ -z "$input" ]; then
     erase_all_flash=0
@@ -91,12 +77,8 @@ if no,u just have to download the user.bin
 if [ $erase_all_flash != 1 ]; then
     echo "Is this new esp8266? enter (Y/y or N/n) to continue(default is N/n):"    
     echo ""
-    input=n
-    echo "enter $input"
-:<<!
-if the esp8266 is new,dont note this comments as below
-read input
-!
+    read input
+
     if [ -z "$input" ]; then
         new_device=0
     elif [[ $input != Y ]] && [[ $input != y ]]; then
@@ -146,12 +128,7 @@ echo "    3=4MB"
 echo "    4=8MB"
 echo "    5=16MB"
 echo "enter (0/1/2/3/4/5, default 0):"
-input=2
-echo "enter $input"
-:<<!
-if u wanna select which flash size,dont note this comments as below
 read input
-!
 
 if [ -z "$input" ]; then
     flash_size=0
@@ -213,7 +190,7 @@ user1_addr=0x01000
 echo "Download is starting ^_^!!"
 echo ""
 if [ $new_device == 1 ]; then
-    $ESPTOOL_PATH --port $COM --b 921600 write_flash \
+    $ESPTOOL_PATH --port $COM write_flash \
     $boot_addr $BOOT_PATH \
     $user1_addr $USER_BIN_PATH \
     $blank_addr1 $BLANK_BIN_PATH \
@@ -221,6 +198,5 @@ if [ $new_device == 1 ]; then
     $blank_addr2 $BLANK_BIN_PATH
 else
     echo "$user1_addr"    
-    $ESPTOOL_PATH --port $COM --baud 921600 write_flash $user1_addr $USER_BIN_PATH
+    $ESPTOOL_PATH --port $COM write_flash $user1_addr $USER_BIN_PATH
 fi
-
