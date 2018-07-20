@@ -53,7 +53,7 @@ Administrator@Helon /cygdrive/d/Project/Smart_Plug/tools/esptool-2.3.1
 $ python setup.py install
 ```
 ## 编写脚本
-在这里就不一一演示脚本怎么写了,我已经写好了,大家可以直接下载使用([脚本下载地址](https://github.com/xiaolongba/esp8266/tree/master/%E7%BC%96%E8%AF%91%E5%8F%8A%E7%83%A7%E5%BD%95%E8%84%9A%E6%9C%AC),如果写得不好,欢迎打脸.
+在这里就不一一演示脚本怎么写了,我已经写好了,大家可以直接下载使用[脚本下载地址](https://github.com/xiaolongba/esp8266/tree/master/%E7%BC%96%E8%AF%91%E5%8F%8A%E7%83%A7%E5%BD%95%E8%84%9A%E6%9C%AC),如果写得不好,欢迎打脸.
 
 ## 使用脚本
 在终端下直接调用以下脚本即可,但是你还是要先设置下相关参数对应的路径,具体你可以看脚本里面的内容,那里有中文的注释
